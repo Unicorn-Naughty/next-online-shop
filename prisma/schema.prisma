@@ -18,7 +18,7 @@ model User {
   sex      String
   town     String
   email    String
-  birthday DateTime
+  birthday DateTime?
   bonus    Int
 
   createdAt DateTime @default(now())
@@ -77,30 +77,33 @@ model CategoryItem {
 
 //Products
 model Product {
-  id          Int    @unique @default(autoincrement())
+  id          Int      @unique @default(autoincrement())
   name        String
   imageURL    String
   imageURLBig String
-  imageSlider String
+  imageSlider String[]
   description String
   brand       String
   type        String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  volume      Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
 
   variants ProductVariant[]
 
-  categoryItem   CategoryItem @relation(fields: [categoryItemId], references: [id])
-  categoryItemId Int
+  categoryItem     CategoryItem    @relation(fields: [categoryItemId], references: [id])
+  categoryItemId   Int
+  
+  specifications   Specifications @relation(fields: [specificationsId], references: [id])
+  specificationsId Int
 }
 
 model ProductVariant {
-  id          Int    @unique @default(autoincrement())
-  rest        Int
-  price       Int
-  variantName String
-  article     String
+  id            Int    @unique @default(autoincrement())
+  rest          Int
+  price         Int
+  variantVolume Int?
+  article       String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
@@ -108,25 +111,19 @@ model ProductVariant {
   product   Product @relation(fields: [productId], references: [id])
   productId Int
 
-  specifications Specifications?
-
   cartItems CartItem[]
 }
 
 model Specifications {
-  id         Int    @unique @default(autoincrement())
-  typeOfCare String
-  effect     String
-  weight     String
-  volume     Int
+  id         Int      @unique @default(autoincrement())
+  typeOfCare String[]
+  effect     String[]
   country    String
-  type       String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
-  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
-  productVariantId Int            @unique
+  product Product[]
 }
 
 //Cart
