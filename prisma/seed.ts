@@ -9,7 +9,7 @@ import { specifications } from "../constants/const-prisma/specification";
 const generateProductVariantAdditional = (productId: number, variantVolume: number) => {
     const item = products.find((item) => item.id === productId)!
     return {
-        rest: getRandomInt(1, 20),
+        rest: getRandomInt(1, 10),
         price: getRandomInt(150, 4500),
         variantVolume,
         productId: item.id,
@@ -28,12 +28,7 @@ const generateProductVariantMain = (products: TProducts) => {
     })
 }
 
-
-
 async function up() {
-
-
-
     await prisma.category.createMany({
         data: categories
     })
@@ -66,6 +61,43 @@ async function up() {
         ]
     }
     )
+    await prisma.cart.createMany({
+        data: [
+            {
+                totalAmount: 1500,
+                token: '13234',
+            },
+            {
+                totalAmount: 21500,
+                token: '132354',
+            },
+        ]
+
+    })
+    await prisma.cartItem.createMany({
+        data: [
+            {
+                quantity: 2,
+                productVariantId: 4,
+                cartId: 1
+            },
+            {
+                quantity: 6,
+                productVariantId: 11,
+                cartId: 1
+            },
+            {
+                quantity: 1,
+                productVariantId: 2,
+                cartId: 2
+            },
+            {
+                quantity: 3,
+                productVariantId: 5,
+                cartId: 2
+            },
+        ]
+    })
     await prisma.user.createMany({
         data: [
             {
@@ -112,6 +144,8 @@ async function down() {
     await prisma.$executeRaw`TRUNCATE TABLE "CategoryItem" RESTART IDENTITY CASCADE`
     await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`
     await prisma.$executeRaw`TRUNCATE TABLE "ProductVariant" RESTART IDENTITY CASCADE`
+    await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`
+    await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`
     await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`
     await prisma.$executeRaw`TRUNCATE TABLE "Promocode" RESTART IDENTITY CASCADE`
 }

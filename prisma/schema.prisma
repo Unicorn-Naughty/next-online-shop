@@ -86,14 +86,16 @@ model Product {
   brand       String
   type        String
   volume      Int?
+  tag         String?
+  sale        Boolean?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
 
   variants ProductVariant[]
 
-  categoryItem     CategoryItem    @relation(fields: [categoryItemId], references: [id])
-  categoryItemId   Int
-  
+  categoryItem   CategoryItem @relation(fields: [categoryItemId], references: [id])
+  categoryItemId Int
+
   specifications   Specifications @relation(fields: [specificationsId], references: [id])
   specificationsId Int
 }
@@ -135,8 +137,8 @@ model Cart {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
-  user   User @relation(fields: [userId], references: [id])
-  userId Int  @unique
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?  @unique
 
   items CartItem[]
 }
