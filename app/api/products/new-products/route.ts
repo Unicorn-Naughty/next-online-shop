@@ -3,17 +3,15 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const reccomendProducts = await prisma.product.findMany(
-            {
-                where: {
-                    tag: "new"
-                },
-                include: {
-                    variants: true
-                }
+        const newProducts = await prisma.product.findMany({
+            where: {
+                tag: "new"
+            },
+            include: {
+                variants: true
             }
-        )
-        return NextResponse.json(reccomendProducts)
+        })
+        return NextResponse.json(newProducts)
     } catch (err) {
         if (err instanceof Error) {
             console.log(err);

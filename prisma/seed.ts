@@ -1,10 +1,10 @@
 import { PromocodeName, UserRole } from "@prisma/client";
 import { prisma } from "./prisma-client"
 import { categories, subcategories } from "../constants/const-prisma/categories";
-import { products } from "../constants/const-prisma/products";
+import { products} from "../constants/const-prisma/products";
 import { getRandomInt } from "../lib/get-random-int";
-import { TProducts } from "@/types/prisma";
 import { specifications } from "../constants/const-prisma/specification";
+import { TProducts } from "@/types/prisma";
 
 const generateProductVariantAdditional = (productId: number, variantVolume: number) => {
     const item = products.find((item) => item.id === productId)!
