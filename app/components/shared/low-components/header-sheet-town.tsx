@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Input, Label, Sheet } from "../..";
+import { Triangle } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -9,7 +10,10 @@ export const HeaderSheet: React.FC<Props> = () => {
   return (
     <Sheet.Sheet>
       <Sheet.SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <div className="flex items-center cursor-pointer hover:opacity-50 transition-all">
+          <Triangle className="w-[12px] rotate-180 mr-2" />
+          <span>Москва</span>
+        </div>
       </Sheet.SheetTrigger>
       <Sheet.SheetContent>
         <Sheet.SheetHeader>

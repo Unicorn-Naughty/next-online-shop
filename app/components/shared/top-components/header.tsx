@@ -7,11 +7,8 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   return (
-    <div className={cn("", className)}>
-      <header className="h-[100px]  ">
-        <HeaderInner className="flex justify-between" />
-      </header>
-      <nav></nav>
-    </div>
+    <header className={cn("", className)}>
+      <HeaderInner className="flex justify-between items-center bg-white" />
+    </header>
   );
 };
