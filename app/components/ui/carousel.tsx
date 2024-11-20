@@ -205,9 +205,9 @@ const CarouselPrevious = React.forwardRef<
     <button
       ref={ref}
       className={cn(
-        "absolute ml-[50px]",
+        "absolute",
         orientation === "horizontal"
-          ? "left-0 top-[50%]"
+          ? ""
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -232,9 +232,9 @@ const CarouselNext = React.forwardRef<
     <button
       ref={ref}
       className={cn(
-        "absolute mr-[50px] ",
+        "absolute",
         orientation === "horizontal"
-          ? "right-0 top-[50%]"
+          ? ""
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
