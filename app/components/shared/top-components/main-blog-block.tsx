@@ -11,8 +11,8 @@ interface Props {
 
 export const MainBlogBlock: React.FC<Props> = ({ className }) => {
   return (
-    <Container className="px-[80px]">
-      <div className={cn("flex ", className)}>
+    <Container className={cn("px-[120px]",className)}>
+      <div className={cn("flex ")}>
         <div>
           <img src="/anotherPics/Rectangle 7.jpg" alt="" />
         </div>

@@ -3,4 +3,5 @@ export * as Sheet from './ui/sheet'
 export { Button } from "./ui/button"
 export { Label } from "./ui/label"
 export { Input } from "./ui/input"
+export { Skeleton } from "./ui/skeleton"
 export * as Carousel from "./ui/carousel"
