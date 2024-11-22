@@ -20,7 +20,7 @@ export const HeaderNav: React.FC<Props> = ({ className }) => {
               {item.path === "/catalog" ? (
                 <button type="button">{item.name}</button>
               ) : (
-                <Link href={item.path}>{item.name}</Link>
+                <Link className="pb-[18px]" href={item.path}>{item.name}</Link>
               )}
             </li>
           ))}

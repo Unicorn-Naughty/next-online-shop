@@ -33,15 +33,24 @@ export const SmallProductsSlider: React.FC<Props> = ({ items, loading }) => {
         <Carousel.Carousel className="w-full">
           <Carousel.CarouselContent className="-ml-1">
             {items.map((item, index) => (
-              <Carousel.CarouselItem key={index} className="basis-1/5">
+              <Carousel.CarouselItem
+                key={index}
+                className="md:xl:basis-1/5 border border-transparent hover:border-black transition-all  ease-linear hover:shadow-xl basis-1/3"
+              >
                 <Link href="#" className="p-1">
                   <div className="mb-[24px]">
-                    <img src={item.imageURL} alt="" className="" />
+                    <div>
+                      <img src={item.imageURL} alt="" className="" />
+                    </div>
                   </div>
-                  <h1 className="mb-[20px] h-[40px] font-semibold">{item.name}</h1>
+                  <h1 className="mb-[20px] h-[40px] font-semibold">
+                    {item.name}
+                  </h1>
                   <div className="flex gap-[29px]">
                     <div>{item.type}</div>
-                    <div className="font-semibold">{item.variants[0].price}</div>
+                    <div className="font-semibold">
+                      {item.variants[0].price}
+                    </div>
                   </div>
                 </Link>
               </Carousel.CarouselItem>

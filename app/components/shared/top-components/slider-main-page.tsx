@@ -1,10 +1,11 @@
+'use client'
 import { cn } from "@/lib/utils";
 import React from "react";
 import { Button, Carousel } from "../..";
 import { MoveRight } from "lucide-react";
 import { Container } from "../middle-components/container";
 import Link from "next/link";
-
+import Autoplay from "embla-carousel-autoplay";
 interface Props {
   className?: string;
 }
@@ -49,7 +50,10 @@ const slideritems = [
 ];
 export const SliderMainPage: React.FC<Props> = ({ className }) => {
   return (
-    <Carousel.Carousel className="w-full min-h-[calc(100vh-108px)] cursor-grab">
+    <Carousel.Carousel
+      plugins={[Autoplay({ delay: 3000, stopOnInteraction: true,  })]}
+      className="w-full min-h-[calc(100vh-108px)] cursor-grab"
+    >
       <Carousel.CarouselContent className="">
         {slideritems.map((item, index) => (
           <Carousel.CarouselItem
@@ -74,8 +78,14 @@ export const SliderMainPage: React.FC<Props> = ({ className }) => {
           </Carousel.CarouselItem>
         ))}
       </Carousel.CarouselContent>
-      <Carousel.CarouselPrevious variant="ghost" className="left-0 top-[50%] ml-[50px]" />
-      <Carousel.CarouselNext variant="ghost" className="right-0 top-[50%] mr-[50px]" />
+      <Carousel.CarouselPrevious
+        variant="ghost"
+        className="left-0 top-[50%] ml-[50px]"
+      />
+      <Carousel.CarouselNext
+        variant="ghost"
+        className="right-0 top-[50%] mr-[50px]"
+      />
     </Carousel.Carousel>
   );
 };

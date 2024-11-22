@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel, Skeleton } from "../..";
 import { TFetchProduct } from "@/app/services/products/products";
 import Link from "next/link";
+import Autoplay from 'embla-carousel-autoplay'
 interface Props {
   className?: string;
   items: TFetchProduct[];
@@ -26,10 +27,13 @@ export const BigProductsSlider: React.FC<Props> = ({ items, loading }) => {
           </Carousel.CarouselContent>
         </Carousel.Carousel>
       ) : (
-        <Carousel.Carousel className="w-full">
+        <Carousel.Carousel className="w-full" plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}>
           <Carousel.CarouselContent className="-ml-1">
             {items.map((item, index) => (
-              <Carousel.CarouselItem key={index} className="basis-1/3">
+              <Carousel.CarouselItem
+                key={index}
+                className="basis-1/3  hover:text-[#813b02b6] transition-all ease-in-out"
+              >
                 <Link href="#" className="p-1">
                   <div className="mb-[5px]">
                     <img src={item.imageURL} alt="" className="" />

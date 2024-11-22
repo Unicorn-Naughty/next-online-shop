@@ -11,8 +11,8 @@ interface Props {
 export const MailingBlock: React.FC<Props> = ({ className }) => {
   return (
     <Container className={cn("px-[120px] relative", className)}>
-      <div className="w-[800px] flex justify-end bg-[#f3f3f3] p-20 ml-auto mr-0 mt-0 mb-0 relative">
-        <div className="absolute top-[30px] left-[-500px]">
+      <div className="w-[800px] flex justify-end bg-[#f3f3f3] p-20 ml-auto mr-0 mt-0 mb-0 relative md:max-lg:justify-start md:max-lg:w-[100%] md:max-lg:ml-[0]">
+        <div className="absolute top-[30px] left-[-525px] hidden md:lg:block">
           <img src="/anotherPics/Rectangle 34.jpg" alt="" />
         </div>
         <div className="w-[400px]">
