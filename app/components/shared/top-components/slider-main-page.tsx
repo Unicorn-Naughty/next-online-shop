@@ -64,7 +64,7 @@ export const SliderMainPage: React.FC<Props> = ({ className }) => {
             key={index}
           >
             <Container className="top-[90px] absolute ml-[275px] max-[1400px]:ml-[100px]">
-              <h1 className="font-bold text-[95px] uppercase">{item.title}</h1>
+              <h1 className="font-medium text-[95px] uppercase">{item.title}</h1>
               <p className="font-medium  text-[24px] leading-[36px] mb-[45px]">
                 {item.text}
               </p>

@@ -53,9 +53,9 @@ model VerificationCode {
 
 //Categories
 model Category {
-  id   Int    @unique @default(autoincrement())
-  name String
-
+  id        Int      @unique @default(autoincrement())
+  name      String
+  url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
@@ -63,9 +63,9 @@ model Category {
 }
 
 model CategoryItem {
-  id   Int    @unique @default(autoincrement())
-  name String
-
+  id        Int      @unique @default(autoincrement())
+  name      String
+  url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
