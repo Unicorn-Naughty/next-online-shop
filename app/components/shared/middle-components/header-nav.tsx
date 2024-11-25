@@ -1,16 +1,16 @@
-import { LINK_NAMES } from "@/constants/const-app/navbar";
-import { cn } from "@/lib/utils";
 import React from "react";
 import { Container } from "./container";
 import { X } from "./multi-level-menu/x";
+import { cn } from "@/lib/utils";
+
 
 interface Props {
   className?: string;
 }
 
-export const HeaderNav: React.FC<Props> = ({ className }) => {
+export const HeaderNav: React.FC<Props> = ({className}) => {
   return (
-    <Container className="px-[80px] ">
+    <Container className={cn("px-[80px]",className)}>
       <X />
     </Container>
   );

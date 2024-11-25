@@ -19,7 +19,7 @@ import { LINK_NAMES } from "@/constants/const-app/navbar";
 export const X: React.FC<Props> = () => {
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex justify-around">
+      <NavigationMenuList className="flex justify-between ">
         {LINK_NAMES.map((item, i) => (
           <NavigationMenuItem className="" key={i}>
             {item.submenu ? (
@@ -27,10 +27,10 @@ export const X: React.FC<Props> = () => {
                 <NavigationMenuTrigger>
                   <ListItem
                     title={item.name}
-                    href={item.url}
-                    className={
-                      item.url === "/catalog" ? "w-[200px] mx-auto" : ""
-                    }
+                    href={item.url === "/catalog" ? "" : item.url}
+                    className={`w-[200px] px-0 ${
+                      item.url === "/catalog" ? "pointer-events-none " : ""
+                    }`}
                   ></ListItem>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="NavigationMenuContent ">
@@ -42,7 +42,7 @@ export const X: React.FC<Props> = () => {
                             <>
                               <NavigationMenuTrigger className="relative ">
                                 <ListItem
-                                  href={item.url + subItem.url}
+                                  href={subItem.url}
                                   title={subItem.name}
                                 >
                                   <ChevronRight className="width-[10px] h-[10px]" />
@@ -55,11 +55,7 @@ export const X: React.FC<Props> = () => {
                                       {subItem.submenu.map((subzitem, i) => (
                                         <ListItem
                                           key={i}
-                                          href={
-                                            item.url +
-                                            subItem.url +
-                                            subzitem.url
-                                          }
+                                          href={subItem.url + subzitem.url}
                                           title={subzitem.name}
                                         ></ListItem>
                                       ))}
@@ -104,14 +100,12 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "flex justify-between select-none space-y-1    rounded-md p-3 leading-none  border-transparent transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "flex justify-between select-none space-y-1  rounded-md p-3 leading-none  border-transparent transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className={cn("text-[15px] leading-none w-[100%]")}>
-            {title}
-          </div>
+          <div className={cn("text-[15px] leading-none w-[100%]")}>{title}</div>
 
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}

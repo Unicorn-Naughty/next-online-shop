@@ -74,7 +74,7 @@ export const subcategories = [
     {
         name: 'Тонизирующие',
         categoryId: 4,
-        url: "/tonics-effects"
+        url: "/tonizz-effects"
     },
     {
         name: 'Бодрящие',
@@ -116,4 +116,36 @@ export const subcategories = [
         categoryId: 6,
         url: "/maslo"
     },
+]
+
+const baseCategories = [
+    {
+        name: "Каталог",
+        url: "/catalog"
+    },
+    {
+        name: "Клуб косметлогов",
+        url: "/club-cosmo"
+    },
+    {
+        name: "Сертификаты",
+        url: "/sertificates"
+    },
+    {
+        name: "Доставка и оплата",
+        url: "del&payment"
+    },
+    {
+        name: "Контакты",
+        url: "/contacts"
+    },
+    {
+        name: "Блог",
+        url: "/blog"
+    }
+]
+
+export const allCategories = [
+
+    ...baseCategories, ...categories, ...subcategories
 ]

@@ -10,6 +10,10 @@ export const LINK_NAMES = [
                 url: "/perfume",
                 submenu: [
                     {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
+                    {
                         name: 'Для мужчин',
                         categoryId: 1,
                         url: "/for-men",
@@ -30,6 +34,10 @@ export const LINK_NAMES = [
                 name: "Очищение",
                 url: "/clear",
                 submenu: [
+                    {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
                     {
                         name: 'Крафтовое мыло',
                         categoryId: 2,
@@ -52,6 +60,10 @@ export const LINK_NAMES = [
                 url: "/pilling&scrabs",
                 submenu: [
                     {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
+                    {
                         name: 'Для тела',
                         categoryId: 3,
                         url: "/for-body"
@@ -68,6 +80,10 @@ export const LINK_NAMES = [
                 url: "/tonics",
                 submenu: [
                     {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
+                    {
                         name: 'Молодильные',
                         categoryId: 4,
                         url: "/younger-effects",
@@ -75,7 +91,7 @@ export const LINK_NAMES = [
                     {
                         name: 'Тонизирующие',
                         categoryId: 4,
-                        url: "/tonics-effects"
+                        url: "/tonizz-effects"
                     },
                     {
                         name: 'Бодрящие',
@@ -88,6 +104,10 @@ export const LINK_NAMES = [
                 name: "Кремы",
                 url: "/crems",
                 submenu: [
+                    {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
                     {
                         name: 'Для лица',
                         categoryId: 5,
@@ -114,6 +134,10 @@ export const LINK_NAMES = [
                 name: "Сыворотки",
                 url: "/sivorotki",
                 submenu: [
+                    {
+                        name: 'Все товары категории',
+                        url: ""
+                    },
                     {
                         name: 'На глицирине',
                         categoryId: 6,
@@ -155,8 +179,6 @@ export const LINK_NAMES = [
     },
 ]
 
-
-
 export type TItems = {
     name: string;
     url: string;
@@ -184,23 +206,4 @@ export type TSub = {
     }[];
 }[]
 
-// <NavigationMenuItem>
-// <NavigationMenuTrigger>Item one</NavigationMenuTrigger>
-// <NavigationMenuContent>Item one Content</NavigationMenuContent>
-// </NavigationMenuItem>
-// <NavigationMenuItem>
-// <NavigationMenuTrigger>Item two</NavigationMenuTrigger>
-// <NavigationMenuContent>
-//   <NavigationMenuSub defaultValue="sub1">
-//     <NavigationMenuList>
-//       <NavigationMenuItem value="sub1">
-//         <NavigationMenuTrigger>Sub item one</NavigationMenuTrigger>
-//         <NavigationMenuContent>
-//           Sub item one Content
-//         </NavigationMenuContent>
-//       </NavigationMenuItem>
-//     </NavigationMenuList>
-//   </NavigationMenuSub>
-// </NavigationMenuContent>
-// </NavigationMenuItem>
 
