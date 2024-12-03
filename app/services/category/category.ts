@@ -1,13 +1,15 @@
 
-import { CategoryItem, Product } from "@prisma/client"
+import { CategoryItem, Product, ProductVariant } from "@prisma/client"
 import { instance } from "../instance"
-
+export type TProductWithVariants = Product & {
+    variants: ProductVariant[]
+  }
 export type TFetchCategory = {
     id: number,
     name: string,
     url: string
     categoryItem: CategoryItem & {
-        products?: Product[]
+        products?: TProductWithVariants[]
     }[]
 
 }

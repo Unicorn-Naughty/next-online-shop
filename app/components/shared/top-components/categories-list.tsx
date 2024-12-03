@@ -1,6 +1,7 @@
 import React from "react";
 import { FiltersSorting } from "./filters-sorting";
-import { TFetchCategory } from "@/app/services/category/category";
+import { TFetchCategory, TProductWithVariants } from "@/app/services/category/category";
+import { ProductsList } from "./products-list";
 interface Props {
   className?: string;
   subCategoryItem: TFetchCategory;
@@ -12,9 +13,15 @@ export const CategoriesList: React.FC<Props> = ({
   subCategoryItem,
   len,
 }) => {
+  const products: TProductWithVariants[] = [];
+  subCategoryItem.categoryItem.forEach((item) =>
+    item.products?.forEach((product) => products.push(product))
+  );
+
   return (
     <div className={className}>
       <FiltersSorting subCategoryItem={subCategoryItem} len={len} />
+      <ProductsList products={products} className="mt-[50px]" />
     </div>
   );
 };

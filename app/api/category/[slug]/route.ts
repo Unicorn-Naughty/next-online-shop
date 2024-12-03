@@ -16,13 +16,17 @@ export async function GET(reqz: NextRequest, { params }: {
             include: {
                 categoryItem: {
                     include: {
-                        products: true
+                        products: {
+                            include: {
+                                variants: true
+                            }
+                        }
                     }
                 }
             }
         })
-        
-        
+
+
         return NextResponse.json(subCategories)
     } catch (error) {
         console.log(error);
