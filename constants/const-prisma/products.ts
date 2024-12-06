@@ -6,6 +6,24 @@ export enum Brands {
     MJ = "Marc Jacobs",
     MK = "Mary kay"
 }
+export const brandz = [
+    {
+        text: "Dolce&Gabbana",
+        value: "1"
+    },
+    {
+        text: "Loccitane",
+        value: "2"
+    },
+    {
+        text: "Marc Jacobs",
+        value: "3"
+    },
+    {
+        text: "Mary kay",
+        value: "4"
+    },
+]
 export enum Types {
     PERFUM = "Perfume",
     MASKS = "Mask",

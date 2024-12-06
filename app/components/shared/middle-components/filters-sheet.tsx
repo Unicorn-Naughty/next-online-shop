@@ -1,8 +1,9 @@
-"use client";
 import React from "react";
-import { Button, Input, Label, Sheet } from "../..";
+import { Button, Sheet } from "../..";
 
 import { SlidersHorizontal } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/accordion";
+import { RangeSlider } from "../low-components/range-slider";
 interface Props {
   className?: string;
 }
@@ -12,34 +13,51 @@ export const FiltersSheet: React.FC<Props> = () => {
     <Sheet.Sheet>
       <Sheet.SheetTrigger asChild>
         <div className="flex items-center cursor-pointer  transition-all ease-in-out hover:text-[#ac8c75]">
-          <SlidersHorizontal className="w h mr-3"/>
+          <SlidersHorizontal className="w h mr-3" />
           <span className="font-medium text-[18px]">Фильтры</span>
         </div>
       </Sheet.SheetTrigger>
       <Sheet.SheetContent side="left">
         <Sheet.SheetHeader>
-          <Sheet.SheetTitle>Edit profile</Sheet.SheetTitle>
-          <Sheet.SheetDescription>
-            Make changes to your profile here. Click save when youre done.
-          </Sheet.SheetDescription>
+          <Sheet.SheetTitle>Фильтрация</Sheet.SheetTitle>
         </Sheet.SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div>
+          
+        <RangeSlider min={0} max={10000} step={10} className="w-[250px]  mt-[25px] mx-[auto]"/>
+
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>бренды</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger>страна бренда</AccordionTrigger>
+            <AccordionContent>
+              Yes. It comes with default styles that matches the other
+              components&apos; aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger>эффект</AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>для кого</AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
         <Sheet.SheetFooter>
           <Sheet.SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" className="w-[100%] mt-[50px]">Показать товары</Button>
           </Sheet.SheetClose>
         </Sheet.SheetFooter>
       </Sheet.SheetContent>

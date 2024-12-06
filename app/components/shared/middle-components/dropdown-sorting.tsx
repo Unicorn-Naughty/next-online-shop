@@ -5,23 +5,21 @@ import { Dropdown } from "../..";
 import { cn } from "@/lib/utils";
 interface Props {
   className?: string;
+  sortBy: TSorting;
+  setSortBy: React.Dispatch<React.SetStateAction<TSorting>>;
 }
 
 export enum TSorting {
   POPULAR = "по популярности",
-  SALE = "по размеру скидки",
   CHIP = "сначала дешевле",
   EXP = "сначала дороже",
 }
 
-export const DropdownSorting: React.FC<Props> = () => {
-  const [sortBy, setSortBy] = React.useState<TSorting>(TSorting.POPULAR);
+export const DropdownSorting: React.FC<Props> = ({ setSortBy, sortBy }) => {
   return (
     <Dropdown.DropdownMenu>
       <Dropdown.DropdownMenuTrigger asChild>
-        <div
-          className="flex items-center ml-[25px] h-[25px] w-[250px] cursor-pointer transition-all ease-in-out hover:text-[#ac8c75] font-medium text-[18px] group"
-        >
+        <div className="flex items-center ml-[25px] h-[25px] w-[250px] cursor-pointer transition-all ease-in-out hover:text-[#ac8c75] font-medium text-[18px] group">
           <button className="w-[180px] mr-[5px]">{sortBy}</button>
           <ChevronDown
             className={cn(
@@ -37,9 +35,6 @@ export const DropdownSorting: React.FC<Props> = () => {
         >
           <Dropdown.DropdownMenuRadioItem value={TSorting.POPULAR}>
             {TSorting.POPULAR}
-          </Dropdown.DropdownMenuRadioItem>
-          <Dropdown.DropdownMenuRadioItem value={TSorting.SALE}>
-            {TSorting.SALE}
           </Dropdown.DropdownMenuRadioItem>
           <Dropdown.DropdownMenuRadioItem value={TSorting.CHIP}>
             {TSorting.CHIP}

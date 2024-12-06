@@ -24,7 +24,7 @@ const Page = async ({
           }
         }, 0);
       return (
-        <Container className="mt-[50px]">
+        <Container className="mt-[50px] mb-[150px]">
           <div className="flex items-center mb-[25px] px-[80px] ">
             <BreadcrumbsCatalog className="" />
             <h1 className="ml-auto text-[45px] font-semibold">
